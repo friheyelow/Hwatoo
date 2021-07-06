@@ -5,16 +5,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.adapter.ItemAdapter
 import com.example.madcamp1.data.Datasource
+import com.example.madcamp1.model.Imageres
 
 class FragGallery : Fragment() {
 
+    var n=5
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setFragmentResultListener("key"){key,bundle->n+=bundle.getInt("num")}
     }
 
     val TAG: String = "로그"
@@ -23,22 +29,93 @@ class FragGallery : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "FragGallery - onViewCreated() called")
 
-        val showimagenum= arguments?.getInt("num")
+
         // Initialize data.
-        var myDataset= Datasource().loadImageres(20)
-        if(showimagenum!=null) {
-            myDataset = Datasource().loadImageres(showimagenum)
-        }
+        val myDataset= Datasource().loadImageres()
+        Log.d(TAG, "myDataset = $myDataset, size = ${myDataset.size}")
 
-        val recyclerView = getView()?.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView?.adapter = ItemAdapter(requireContext(), myDataset)
+        val recyclerView = getView()?.findViewById<RecyclerView>(R.id.recycler_view2)
+        val iAdapter = ItemAdapter(requireContext(), myDataset)
+        recyclerView?.adapter = iAdapter
 
-        val gridLayoutManager= GridLayoutManager(requireContext(),3)
+
+        val gridLayoutManager=GridLayoutManager(requireContext(),3)
         //val staggeredGridLayoutManager=StaggeredGridLayoutManager(3,LinearLayoutManager.VERTICAL)
         recyclerView?.layoutManager=gridLayoutManager
 
         recyclerView?.setHasFixedSize(true)
 
+        val luckyBtn: Button = requireView().findViewById<Button>(R.id.lucky_btn)
+
+
+        if (n>0) {
+            luckyBtn.isClickable = true
+            luckyBtn.isEnabled = true
+            luckyBtn.text = "나의 뽑기권: ${n}개"
+        } else {
+            luckyBtn.text = "뽑기권이 없어요!"
+            luckyBtn.isClickable = false
+            luckyBtn.isEnabled = false
+        }
+
+        luckyBtn.setOnClickListener {
+            Log.d(TAG, "FragContact - onCreateView() called")
+
+            if (n==1) {
+                luckyBtn.isClickable = false
+                luckyBtn.isEnabled = false
+                luckyBtn.text = "뽑기권이 없어요!"
+                n--
+            } else {n--
+                luckyBtn.text = "나의 뽑기권: ${n}개"}
+
+
+            var resultImage: Imageres =
+                when ((1..33).random()) {
+                    1 -> Imageres(R.drawable.ht1)
+                    2 -> Imageres(R.drawable.ht2)
+                    3 -> Imageres(R.drawable.ht3)
+                    4 -> Imageres(R.drawable.ht4)
+                    5 -> Imageres(R.drawable.ht5)
+                    6 -> Imageres(R.drawable.ht6)
+                    7 -> Imageres(R.drawable.ht7)
+                    8 -> Imageres(R.drawable.ht8)
+                    9 -> Imageres(R.drawable.ht9)
+                    10 -> Imageres(R.drawable.ht10)
+                    11 -> Imageres(R.drawable.ht11)
+                    12 -> Imageres(R.drawable.ht12)
+                    13 -> Imageres(R.drawable.ht13)
+                    14 -> Imageres(R.drawable.ht14)
+                    15 -> Imageres(R.drawable.ht15)
+                    16 -> Imageres(R.drawable.ht16)
+                    17 -> Imageres(R.drawable.ht17)
+                    18 -> Imageres(R.drawable.ht18)
+                    19 -> Imageres(R.drawable.ht19)
+                    20 -> Imageres(R.drawable.ht20)
+                    21 -> Imageres(R.drawable.ht21)
+                    22 -> Imageres(R.drawable.ht22)
+                    23 -> Imageres(R.drawable.ht23)
+                    24 -> Imageres(R.drawable.ht24)
+                    25 -> Imageres(R.drawable.ht25)
+                    26 -> Imageres(R.drawable.ht26)
+                    27 -> Imageres(R.drawable.ht27)
+                    28 -> Imageres(R.drawable.ht28)
+                    29 -> Imageres(R.drawable.ht29)
+                    30 -> Imageres(R.drawable.ht30)
+                    31 -> Imageres(R.drawable.ht31)
+                    32 -> Imageres(R.drawable.ht32)
+                    else -> Imageres(R.drawable.ht33)
+                }
+
+            if (!(resultImage in myDataset)){
+                iAdapter.addImage(resultImage)
+                iAdapter.notifyDataSetChanged()
+                Toast.makeText(activity, "새로운 화투패를 발견했어요 🌸", Toast.LENGTH_SHORT).show()
+                recyclerView?.smoothScrollToPosition(iAdapter.getSize())
+            } else {
+                Toast.makeText(activity, "아쉽지만 다음 기회에~🤪", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     }
 

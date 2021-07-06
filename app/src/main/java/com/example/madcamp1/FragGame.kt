@@ -1,7 +1,6 @@
 package com.example.hwatoo
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import com.example.madcamp1.FragGallery
 import com.example.madcamp1.R
 
@@ -96,6 +97,11 @@ class FragGame : Fragment() {
             regamebutton.isEnabled=true
         }
         regamebutton.setOnClickListener{
+            if(gameinfo.computermoney<=0){
+                val bundle=Bundle()
+                bundle.putInt("num",1)
+                setFragmentResult("key",bundle)
+            }
             drawButton.isEnabled=true
             regamebutton.isEnabled=false
             computerwinlose.visibility=View.GONE
