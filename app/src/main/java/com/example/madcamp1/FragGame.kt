@@ -9,19 +9,15 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.madcamp1.FragGallery
 import com.example.madcamp1.R
-import org.w3c.dom.Text
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Fragment3.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class FragGame : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -70,6 +66,11 @@ class FragGame : Fragment() {
         diebutton.isEnabled=false
 
         doubleButton.isEnabled=false
+        // 갤러리로 값 넘기기
+        val bundle=Bundle()
+        bundle.putInt("num",3)
+        FragGallery().arguments=bundle
+        activity?.supportFragmentManager!!.beginTransaction().commit()
 
         diebutton.setOnClickListener{
             gameinfo.computermoney+=gameinfo.playerstake
@@ -446,5 +447,4 @@ class Gameinfo(){
     var computerstake=100
     var playermoney=5000
     var computermoney=5000
-    var gameend=true
 }
