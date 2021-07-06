@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.adapter.ItemAdapter
@@ -16,8 +17,10 @@ import com.example.madcamp1.model.Imageres
 
 class FragGallery : Fragment() {
 
+    var n=5
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setFragmentResultListener("key"){key,bundle->n+=bundle.getInt("num")}
     }
 
     val TAG: String = "로그"
@@ -25,6 +28,7 @@ class FragGallery : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "FragGallery - onViewCreated() called")
+
 
         // Initialize data.
         val myDataset= Datasource().loadImageres()
@@ -43,8 +47,28 @@ class FragGallery : Fragment() {
 
         val luckyBtn: Button = requireView().findViewById<Button>(R.id.lucky_btn)
 
+
+        if (n>0) {
+            luckyBtn.isClickable = true
+            luckyBtn.isEnabled = true
+            luckyBtn.text = "나의 뽑기권: ${n}개"
+        } else {
+            luckyBtn.text = "뽑기권이 없어요!"
+            luckyBtn.isClickable = false
+            luckyBtn.isEnabled = false
+        }
+
         luckyBtn.setOnClickListener {
             Log.d(TAG, "FragContact - onCreateView() called")
+
+            if (n==1) {
+                luckyBtn.isClickable = false
+                luckyBtn.isEnabled = false
+                luckyBtn.text = "뽑기권이 없어요!"
+                n--
+            } else {n--
+                luckyBtn.text = "나의 뽑기권: ${n}개"}
+
 
             var resultImage: Imageres =
                 when ((1..33).random()) {

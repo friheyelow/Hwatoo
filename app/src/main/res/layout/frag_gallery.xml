@@ -73,21 +73,24 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:id="@+id/rellayout"
             android:paddingVertical="16dp"
-            >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/lucky_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="뽑기"
+                android:layout_height="wrap_content"
+                android:text="나의 뽑기권: 5개"
+                android:background="@drawable/roundimage"
+                android:textStyle="bold"
+                android:layout_weight="0"
                  />
 
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <ImageView
