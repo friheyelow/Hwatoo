@@ -101,7 +101,9 @@ class FragGame : Fragment() {
                 val bundle=Bundle()
                 bundle.putInt("num",1)
                 setFragmentResult("key",bundle)
+                gameinfo= Gameinfo()
             }
+            else if(gameinfo.playermoney<=0) gameinfo=Gameinfo()
             drawButton.isEnabled=true
             regamebutton.isEnabled=false
             computerwinlose.visibility=View.GONE

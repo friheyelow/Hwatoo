@@ -143,6 +143,7 @@ class ContactAdapter (private val context: Context,
                     .create()
                 alertDialog.setView(alertLayoutInUse)
                 alertDialog.show()
+                alertLayoutInUse.removeSelf()
             }
 
             showSettingPopup()
@@ -160,6 +161,11 @@ class ContactAdapter (private val context: Context,
 //    }
     override fun getItemCount(): Int {
         return dataset.size
+    }
+    fun View?.removeSelf() {
+        this ?: return
+        val parentView = parent as? ViewGroup ?: return
+        parentView.removeView(this)
     }
 
 
