@@ -9,7 +9,7 @@
 |<img src="https://user-images.githubusercontent.com/63537847/124421905-5f18d900-dd9d-11eb-839c-84f6ce84f1ce.png" width="200" height="400">|<img src="https://user-images.githubusercontent.com/63537847/124422205-eb2b0080-dd9d-11eb-8886-4bbd4c79f223.png" width="200" height="400">|<img src = "https://user-images.githubusercontent.com/58783348/124560386-b5f2e100-de77-11eb-9da4-ddfbaab408c8.jpeg" width = "200" height = "400">|
 
 ## Tab1 : 연락처
-> 같이 섯다를 할 친구가 필요하다구요? 섯다에 필요한 급전이 필요하시다구요?! 그렇다면 이 앱을 통해 연락처를 저장하고 바로 전화할 수 있습니다!
+> 같이 섯다를 할 친구가 필요하다구요? 섯다에 필요한 급전이 필요하시다구요?! 그렇다면 이 앱을 통해 친구나 제 3금융권의 연락처를 확인해보세요!
 > 
 
 - ### 연락처 저장하기 
