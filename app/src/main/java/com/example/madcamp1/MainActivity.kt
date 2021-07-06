@@ -33,10 +33,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         navigation = findViewById<BottomNavigationView>(R.id.navigation)
         vpMain = findViewById<ViewPager2>(R.id.vp_main)
-
         initViewPager()
         initNavigationBar()
-
 
     }
 
@@ -51,8 +49,8 @@ class MainActivity : AppCompatActivity() {
             Log.e(TAG, "initNavigationBar: ", e)
         }
 
-        navigation.run {
-            this!!.setOnNavigationItemSelectedListener {
+        navigation?.run {
+            this?.setOnNavigationItemSelectedListener {
                 val page = when(it.itemId) {
                     R.id.contact -> 0
                     R.id.game -> 1
@@ -71,9 +69,9 @@ class MainActivity : AppCompatActivity() {
     private fun initViewPager() {
         Log.d(TAG, "MainActivity - initViewPager() called")
 
-        vpMain.run {
-            this!!.adapter = pagerAdapter
-            this.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        vpMain?.run {
+            this?.adapter = pagerAdapter
+            this?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
                 override fun onPageSelected(position: Int) {
                     val nav = when(position) {
                         0 -> R.id.contact

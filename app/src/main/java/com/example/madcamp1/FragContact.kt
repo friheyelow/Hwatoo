@@ -25,12 +25,6 @@ import java.io.IOException
 
 class FragContact : Fragment() {
     val TAG: String = "로그"
-
-    // 키보드 InputMethodManager 변수 선언
-    var imm : InputMethodManager? = null
-
-    var userList: ArrayList<DataVo> = ArrayList()
-
     @SuppressLint("SetJavaScriptEnabled")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,14 +32,12 @@ class FragContact : Fragment() {
         Log.d(TAG, "FragContact - onCreate() called")
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        Log.d(TAG, "FragContact - onCreateView() called")
-        val view: View = inflater.inflate(R.layout.frag_contact, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d(TAG, "FragContact - onViewCreated() called")
+        var imm : InputMethodManager? = null
         imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-
+        var userList: ArrayList<DataVo> = ArrayList()
         try {
             val inputStream = context?.assets?.open("ContactList.json")
             val size = inputStream!!.available()
@@ -81,31 +73,25 @@ class FragContact : Fragment() {
             e.printStackTrace()
         }
 
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recycler_view)
+        val mAdapter = ContactAdapter(requireContext(), userList)
+        recyclerView.adapter = mAdapter
 
         fun hideKeyboard(view: View) {
             Log.d(TAG, "FragContact - hideKeyboard() called")
             imm?.hideSoftInputFromWindow(view.windowToken, 0)
         }
 
-        val mAdapter = ContactAdapter(requireContext(), userList)
         Log.d(TAG, "mAdapter=$mAdapter")
-        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = mAdapter
-        Log.d(TAG, "mAdapter=$mAdapter")
-
         val layout = LinearLayoutManager(activity)
         recyclerView.layoutManager = layout
         recyclerView.setHasFixedSize(true)
-
         val addBtn = getView()?.findViewById<Button>(R.id.add_btn)
-
         // 하이픈
         val etNumber = requireView().findViewById<EditText>(R.id.input_number)
         etNumber.setRawInputType(android.text.InputType.TYPE_CLASS_PHONE)
         etNumber.addTextChangedListener(PhoneNumberFormattingTextWatcher())
-
         val etName = requireView().findViewById<EditText>(R.id.input_name)
-
         etName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
 
@@ -124,8 +110,6 @@ class FragContact : Fragment() {
                 }
             }
         })
-
-
         etNumber?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
 
@@ -146,7 +130,6 @@ class FragContact : Fragment() {
                 }
             }
         })
-
         addBtn?.setOnClickListener {
             Log.d(TAG, "FragContact - onCreateView() called")
             hideKeyboard(it)
@@ -165,9 +148,15 @@ class FragContact : Fragment() {
             etName?.text = null
 
         }
-    return view
+
+
     }
 
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.frag_contact, container, false)
+    }
 
 }
