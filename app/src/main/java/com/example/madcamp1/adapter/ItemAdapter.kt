@@ -16,8 +16,21 @@ import com.example.madcamp1.model.Imageres
 
 class ItemAdapter(
     private val context: Context,
-    private val dataset: List<Imageres>
+    private val dataset: MutableList<Imageres>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+
+    fun addImage(imageres: Imageres){
+        dataset.add(imageres)
+        notifyDataSetChanged()
+    }
+
+    fun getSize():Int{
+        if (dataset.size > 0){ return dataset.size-1}
+        else{
+            return 0
+        }
+    }
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and

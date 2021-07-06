@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="뽑기"
-                app:backgroundTint="#C6C5C5" />
+                 />
 
         </RelativeLayout>
     </LinearLayout>
@@ -112,7 +112,7 @@
             android:background="#036E00" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recycler_view2"
             android:layout_width="match_parent"
             android:paddingHorizontal="8dp"
             android:layout_height="match_parent"
