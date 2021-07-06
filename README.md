@@ -1,8 +1,7 @@
 
 #  🎴 STOOD
-
+<img src="https://user-images.githubusercontent.com/59908066/124667572-8af5a500-deea-11eb-9629-48f1c45cac76.png" width="400" height="400">
 > 정나연, 김주형
-
 
 |Contacts|Game|Image Collection|
 |--|--|--|
