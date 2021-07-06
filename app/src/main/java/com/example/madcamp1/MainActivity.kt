@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         navigation?.run {
-            this?.setOnNavigationItemSelectedListener {
+            this.setOnNavigationItemSelectedListener {
                 val page = when(it.itemId) {
                     R.id.contact -> 0
                     R.id.game -> 1
@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "MainActivity - initViewPager() called")
 
         vpMain?.run {
-            this?.adapter = pagerAdapter
-            this?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            this.adapter = pagerAdapter
+            this.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
                 override fun onPageSelected(position: Int) {
                     val nav = when(position) {
                         0 -> R.id.contact
