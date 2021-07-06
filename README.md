@@ -20,7 +20,7 @@
 - ### 전화하기 
 
   <img src="https://user-images.githubusercontent.com/63537847/124422815-e9157180-dd9e-11eb-9269-173ca6f23cb2.png" width="200" height="400"> <img src="https://user-images.githubusercontent.com/63537847/124422851-f6caf700-dd9e-11eb-9bfc-c1af7e72a00b.png" width="200" height="400">
-  - 연락처를 선택하면 바로 상대방에게 정화를 걸 수 있습니다. 친구를 구할때나 돈을 땡겨올때 긴히 사용해보세요!
+  - 연락처를 선택하면 바로 상대방에게 전화를 걸 수 있습니다. 친구를 구할때나 돈을 땡겨올때 긴히 사용해보세요!
 
 - ### 연락처 삭제하기
   
@@ -29,7 +29,7 @@
   - 순간의 감정에 휘둘리지 않도록 정말로 삭제할 것인지 다시 한번 물어보는 창이 뜹니다!
 
 ## Tab2 : 섯다
-> 섯다 Tab은 computer와 섯다 game을 할 수 있는 탭입니다. 돈이 부족하거나 연습이 필요하다면 2분반 섯다 장인 김XX의 노하우가 그대로 담긴 AI를 상대해보세요!
+> 섯다 Tab은 computer와 섯다 게임을 할 수 있는 탭입니다. 돈이 부족하거나 연습이 필요하다면 2분반 섯다 장인 김XX의 노하우가 그대로 담긴 AI를 상대해보세요!
 > 컴퓨터를 여러번 이기면 특볋한 보상을 얻을 수도 있습니다.
 - ### 섯다 페이지
   <img src = "https://user-images.githubusercontent.com/68638211/124426397-f3d30500-dda4-11eb-8f4a-08cfefd7826b.jpg" width = "200" height = "400" >
