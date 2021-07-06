@@ -1,11 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/callButton"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="@string/call"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/regamebutton"
+        app:layout_constraintTop_toBottomOf="@+id/doublebutton" />
 
     <TextView
+        android:id="@+id/moneyView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="game"/>
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/computerpae2"
+        tools:text="500" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/computerpae1"
+        android:layout_width="68dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/computerpae2"
+        android:layout_width="68dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/computerpae1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/playerpae1"
+        android:layout_width="68dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moneyView2"
+        app:layout_constraintVertical_bias="0.054"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/playerwinlose"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/playerpae2"
+        app:layout_constraintTop_toBottomOf="@+id/playermoneyText"
+        tools:text="Loss!" />
+
+    <ImageView
+        android:id="@+id/playerpae2"
+        android:layout_width="68dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/playerpae1"
+        app:layout_constraintTop_toBottomOf="@+id/moneyView2"
+        app:layout_constraintVertical_bias="0.054"
+        tools:src="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/drawButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="148dp"
+        android:text="@string/draw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/computerpae1" />
+
+    <TextView
+        android:id="@+id/moneyView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regamebutton"
+        tools:text="500" />
+
+    <TextView
+        android:id="@+id/computermoneyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/moneyView1"
+        app:layout_constraintTop_toBottomOf="@+id/computerwinlose"
+        tools:text="5000" />
+
+    <TextView
+        android:id="@+id/playermoneyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/moneyView2"
+        app:layout_constraintTop_toBottomOf="@+id/diebutton"
+        tools:text="5000" />
+
+    <ImageView
+        android:id="@+id/computerwinlose"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toEndOf="@+id/computerpae2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/regamebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/regame"
+        app:layout_constraintStart_toEndOf="@+id/drawButton"
+        app:layout_constraintTop_toBottomOf="@+id/moneyView1" />
+
+    <Button
+        android:id="@+id/halfbutton"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/half"
+        app:layout_constraintStart_toEndOf="@+id/regamebutton"
+        app:layout_constraintTop_toBottomOf="@+id/moneyView1" />
+
+    <Button
+        android:id="@+id/doublebutton"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:text="double"
+        app:layout_constraintStart_toEndOf="@+id/regamebutton"
+        app:layout_constraintTop_toBottomOf="@+id/halfbutton" />
+
+    <Button
+        android:id="@+id/diebutton"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="@string/die"
+        app:layout_constraintBottom_toTopOf="@+id/playerpae2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/regamebutton"
+        app:layout_constraintTop_toBottomOf="@+id/callButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
