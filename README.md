@@ -34,11 +34,11 @@
 - ### 섯다 페이지
   <img src = "https://user-images.githubusercontent.com/68638211/124426397-f3d30500-dda4-11eb-8f4a-08cfefd7826b.jpg" width = "200" height = "400" >
   
--처음 시작할땐 draw버튼을 눌러 패를 한장씩 받으세요
--상대방의 판돈에 맞춰 call을 누를 수도 있고
--받고 판돈의 절반을 걸거나(half)
--판돈을 배로 올릴수도 있지만(double)
--쫄리면 뒤지셔도 됩니다(die)
+  - 처음 시작할땐 draw버튼을 눌러 패를 한장씩 받으세요
+  - 상대방의 판돈에 맞춰 call을 누를 수도 있고
+  - 받고 판돈의 절반을 걸거나(half)
+  - 판돈을 배로 올릴수도 있지만(double)
+  - 쫄리면 뒤지셔도 됩니다(die)
 
 ## Tab3 : Image collection
 
