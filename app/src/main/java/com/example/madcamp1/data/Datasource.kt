@@ -4,9 +4,8 @@ import com.example.madcamp1.R
 import com.example.madcamp1.model.Imageres
 
 class Datasource() {
-
-    fun loadImageres(): List<Imageres> {
-        return listOf<Imageres>(
+    fun loadImageres(num:Int): List<Imageres> {
+        var imagelist= mutableListOf<Imageres>(
             Imageres(R.drawable.ht1),
             Imageres(R.drawable.ht2),
             Imageres(R.drawable.ht3),
@@ -30,5 +29,7 @@ class Datasource() {
             Imageres(R.drawable.ht21),
             Imageres(R.drawable.ht22)
         )
+        for(i in (21-num..21)) imagelist[i]=Imageres(R.drawable.pae0)
+        return imagelist
     }
 }
