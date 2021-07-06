@@ -23,8 +23,12 @@ class FragGallery : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "FragGallery - onViewCreated() called")
 
+        val showimagenum= arguments?.getInt("num")
         // Initialize data.
-        val myDataset = Datasource().loadImageres()
+        var myDataset= Datasource().loadImageres(20)
+        if(showimagenum!=null) {
+            myDataset = Datasource().loadImageres(showimagenum)
+        }
 
         val recyclerView = getView()?.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView?.adapter = ItemAdapter(requireContext(), myDataset)

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">madcamp1</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello">Hello</string>
+    <string name="raise">Raise</string>
+    <string name="draw">Draw</string>
+    <string name="call">Call</string>
+    <string name="regame">Regame</string>
+    <string name="half">half</string>
+    <string name="die">Die</string>
 </resources>
